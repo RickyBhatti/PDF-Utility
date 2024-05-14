@@ -24,8 +24,8 @@ def parse_pdf(pdf_path):
     pdf = {}
     try: # TODO: Figure out what information we truly want to store for each PDF.
         pdf["reader"] = PdfReader(pdf_path)
-        pdf["length"] = len(pdf["reader"])
-        pdf["metadata"] = pdf["reader"].get_metadata()
+        pdf["length"] = pdf["reader"].get_num_pages()
+        pdf["metadata"] = pdf["reader"].metadata
     except Exception as e:
         raise Exception(f"Failed to access PDF at {pdf_path}: {e}")
 
@@ -50,11 +50,19 @@ def menu():
 #   None.
 def main():
     try:
-        pdfs["test"] = parse_pdf("test.pdf")
+        pdfs["test"] = parse_pdf("test2.pdf")
         print(pdfs["test"]["metadata"])
     except Exception as e:
         print(e)
         return
+
+    print('-' * 50)
+    test_reader = PdfReader("test2.pdf")
+    print(test_reader.metadata)
+    print('-' * 50)
+    print(test_reader.get_num_pages())
+    print('-' * 50)
+    print(test_reader.pages[0].extract_text()[0:100]) # Extract the text from the first page of the PDF, and print the first 100 characters.
 
 # If the script is run directly, run the main function.
 if __name__ == "__main__":
