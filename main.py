@@ -1,4 +1,4 @@
-from PyPDF2 import *
+from pypdf import *
 
 def main():
     pass
