@@ -4,10 +4,22 @@
 # Description: Currently, I have no clue what this script will end up doing. So far, the main reason I've started working on thihs script is to be able to merge PDFs together, but I'm not sure what else I'll end up doing with it. We'll see how it goes.
 # License: Refer to the LICENSE file. (That'll be released with version 1.0., until then, I'm not sure what the license will be so we'll roll with All Rights Reserved.)
 
+# Imports.
 from pypdf import *
 
+# Constants.
+WRITER = PdfWriter()
+
+# Global variables.
 pdfs = {}
 
+# parse_pdf: This function will parse a PDF file and return a dictionary containing the PDF's reader object, length, and metadata.
+# Arguments:
+#   pdf_path: The path to the PDF file.
+# Returns:
+#   pdf: A dictionary containing the PDF's reader object, length, and metadata.
+# Exceptions:
+#   Exception: If the PDF file cannot be accessed, an exception will be raised.
 def parse_pdf(pdf_path):
     pdf = {}
     try: # TODO: Figure out what information we truly want to store for each PDF.
@@ -19,6 +31,23 @@ def parse_pdf(pdf_path):
 
     return pdf
 
+# menu: The menu function of the script.
+# Arguments:
+#   None.
+# Returns:
+#   None.
+# Exceptions:
+#   None.
+def menu():
+    pass
+
+# main: The main function of the script.
+# Arguments:
+#   None.
+# Returns:
+#   None.
+# Exceptions:
+#   None.
 def main():
     try:
         pdfs["test"] = parse_pdf("test.pdf")
@@ -27,5 +56,6 @@ def main():
         print(e)
         return
 
+# If the script is run directly, run the main function.
 if __name__ == "__main__":
     main()
