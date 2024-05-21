@@ -40,7 +40,7 @@ def parse_pdf(pdf_path):
 #   None.
 # Exceptions:
 #   None.
-clear_screen = lambda: os.system('cls' if os.name == 'nt' else 'clear')
+clear_screen = lambda: os.system("cls" if os.name == "nt" else "clear")
 
 # menu: The menu function of the script.
 # Arguments:
