@@ -5,6 +5,8 @@
 # License: Refer to the LICENSE file. (That'll be released with version 1.0., until then, I'm not sure what the license will be so we'll roll with All Rights Reserved.)
 
 # Imports.
+import os
+from time import sleep
 from pypdf import *
 
 # Constants.
@@ -31,6 +33,15 @@ def parse_pdf(pdf_path):
 
     return pdf
 
+# clear_screen: This function will clear the screen.
+# Arguments:
+#   None.
+# Returns:
+#   None.
+# Exceptions:
+#   None.
+clear_screen = lambda: os.system('cls' if os.name == 'nt' else 'clear')
+
 # menu: The menu function of the script.
 # Arguments:
 #   None.
@@ -39,7 +50,22 @@ def parse_pdf(pdf_path):
 # Exceptions:
 #   None.
 def menu():
-    pass
+    clear_screen()
+
+    # Display the "menu".
+    # TODO: Make this an actual menu.
+    print("Welcome to the PDF tool!")
+    print("1. Option 1")
+    print("2. Option 2")
+    print("3. Option 3")
+    print("4. Option 4")
+    print("5. Exit")
+    
+    # Get the user's input.
+    user_input = input("Please select an option: ")
+
+    # Handle the user's input.
+    # TODO: Decide on the best way to handle the user's input.
 
 # main: The main function of the script.
 # Arguments:
@@ -49,6 +75,8 @@ def menu():
 # Exceptions:
 #   None.
 def main():
+    # region Testing
+    # TODO: Remove this testing code.
     try:
         pdfs["test"] = parse_pdf("test2.pdf")
         print(pdfs["test"]["metadata"])
@@ -63,6 +91,11 @@ def main():
     print(test_reader.get_num_pages())
     print('-' * 50)
     print(test_reader.pages[0].extract_text()[0:100]) # Extract the text from the first page of the PDF, and print the first 100 characters.
+
+    sleep(5)
+    # endregion Testing
+
+    menu()
 
 # If the script is run directly, run the main function.
 if __name__ == "__main__":
