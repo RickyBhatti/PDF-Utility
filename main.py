@@ -65,7 +65,19 @@ def menu():
     user_input = input("Please select an option: ")
 
     # Handle the user's input.
-    # TODO: Decide on the best way to handle the user's input.
+    while user_input != "5": # NOTE: Quick implementation of the menu. This will be changed later... probably.
+        if user_input == "1":
+            pass
+        elif user_input == "2":
+            pass
+        elif user_input == "3":
+            pass
+        elif user_input == "4":
+            pass
+        else:
+            print("Invalid option. Please try again.")
+
+        user_input = input("Please select an option: ")
 
 # main: The main function of the script.
 # Arguments:
