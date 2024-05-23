@@ -33,6 +33,27 @@ def parse_pdf(pdf_path):
 
     return pdf
 
+def merge_pdfs(pdfs):
+    # TODO: Implement this function.
+    pass
+
+# write_pdf: This function will write a PDF file to the specified output path.
+# Arguments:
+#   output_path: The path to the output directory. (Default: Current directory.)
+#   pdf_name: The name of the PDF file. (Default: output.pdf)
+#   pdf_data: The data to write to the PDF file. (Default: None)
+# Returns:
+#   None.
+# Exceptions:
+#   Exception: If the PDF file cannot be written, an exception will be raised.
+def write_pdf(output_path = os.getcwd(), pdf_name = "output.pdf", pdf_data = None):
+    try: 
+        WRITER.write(output_path, pdf_name, pdf_data)
+    except Exception as e:
+        raise Exception(f"Failed to write PDF to {output_path}: {e}")
+    
+    return
+
 # clear_screen: This function will clear the screen.
 # Arguments:
 #   None.
